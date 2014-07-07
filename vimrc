@@ -1,28 +1,20 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+execute pathogen#infect()
 
-Plugin 'gmarik/Vundle.vim'
-
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
-call vundle#end()
-filetype plugin indent on
-let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
-set bg=dark
 set t_Co=256
 set laststatus=2
 set mouse=a
-let g:rehash256 = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'bubblegum'
+let g:airline#extensions#tabline#enabled = 1
 let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid 
 syntax enable
 set number
 set noshowmode
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 "tab setup
 set tabstop=4
@@ -33,13 +25,19 @@ set expandtab
 "syntax highlighting
 au BufNewFile,BufRead *.less set filetype=less
 
+"tab navigation
+nnoremap <C-S-Tab> :tabprevious<CR>
+nnoremap <C-Tab>   :tabnext<CR>
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-S-Tab> <Esc>:tabprevious<CR>i
+inoremap <C-Tab>   <Esc>:tabnext<CR>i
+inoremap <C-t>     <Esc>:tabnew<CR>
+
 "search
 if executable('ag')
-
-	set grepprg=ag\ --nogroup\ --nocolor
-	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-	let g:ctrlp_use_caching = 0
-
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    lef g:ctrlp_use_caching = 0
 endif
 
 "exit insert mode with 1 esc
