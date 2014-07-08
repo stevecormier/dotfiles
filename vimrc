@@ -1,6 +1,6 @@
 set nocompatible
 filetype off
-
+filetype plugin indent on
 execute pathogen#infect()
 
 set encoding=utf-8
@@ -10,17 +10,24 @@ set mouse=a
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'bubblegum'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_detect_whitespace = 0
 let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid 
 syntax enable
+
 set number
 set noshowmode
-
+set cursorline
+set nostartofline
 "tab setup
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
+set hlsearch
+set ignorecase
+set incsearch
 
 "syntax highlighting
 au BufNewFile,BufRead *.less set filetype=less
@@ -32,6 +39,9 @@ nnoremap <C-t>     :tabnew<CR>
 inoremap <C-S-Tab> <Esc>:tabprevious<CR>i
 inoremap <C-Tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
+
+"press enter to clear seach highlights
+nnoremap <CR> :noh<CR><CR>
 
 "search
 if executable('ag')
