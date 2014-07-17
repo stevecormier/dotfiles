@@ -15,19 +15,23 @@ let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid 
 syntax enable
 
+set autoindent
 set number
+set nowrap
 set noshowmode
 set cursorline
 set nostartofline
+set nobackup
+set noswapfile
+set hlsearch
+set ignorecase
+set incsearch
+
 "tab setup
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-
-set hlsearch
-set ignorecase
-set incsearch
 
 "syntax highlighting
 au BufNewFile,BufRead *.less set filetype=less
@@ -42,6 +46,11 @@ inoremap <C-t>     <Esc>:tabnew<CR>
 
 "press enter to clear seach highlights
 nnoremap <CR> :noh<CR><CR>
+
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
 
 "search
 if executable('ag')
