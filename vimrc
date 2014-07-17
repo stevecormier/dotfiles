@@ -53,6 +53,8 @@ map <left> <nop>
 map <right> <nop>
 
 "search
+let g:ctrlp_use_caching = 1
+
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
