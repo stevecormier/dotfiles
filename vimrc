@@ -25,6 +25,7 @@ set nobackup
 set noswapfile
 set hlsearch
 set ignorecase
+set smartcase
 set incsearch
 
 "tab setup
