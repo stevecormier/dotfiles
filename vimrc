@@ -27,6 +27,7 @@ set hlsearch
 set ignorecase
 set smartcase
 set incsearch
+set showmatch
 
 "tab setup
 set tabstop=4
@@ -52,6 +53,11 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
+
+map <Help> <Esc>
+map! <Help> <Esc>
+map <Insert> <Esc>
+map! <Insert> <Esc>
 
 "search
 let g:ctrlp_use_caching = 1
