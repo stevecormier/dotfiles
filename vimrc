@@ -54,11 +54,6 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-map <Help> <Esc>
-map! <Help> <Esc>
-map <Insert> <Esc>
-map! <Insert> <Esc>
-
 "search
 let g:ctrlp_use_caching = 1
 
