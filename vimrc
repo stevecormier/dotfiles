@@ -46,9 +46,12 @@ inoremap <C-S-Tab> <Esc>:tabprevious<CR>i
 inoremap <C-Tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
 
+nmap ; :
+
 "press enter to clear seach highlights
 nnoremap <CR> :noh<CR><CR>
 
+"no arrow keys
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
