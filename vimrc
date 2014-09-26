@@ -49,7 +49,11 @@ inoremap <C-t>     <Esc>:tabnew<CR>
 nmap ; :
 
 "press enter to clear seach highlights
-nnoremap <CR> :noh<CR><CR>
+nnoremap <CR> :noh<CR>
+
+"stay in visual mode when indenting
+vnoremap < <gv
+vnoremap > >gv
 
 "no arrow keys
 map <up> <nop>
