@@ -7,12 +7,14 @@ set encoding=utf-8
 set t_Co=256
 set laststatus=2
 set mouse=a
+set ve=all
+let g:hybrid_use_iTerm_colors = 1
+colorscheme hybrid
+
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'serene'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_detect_whitespace = 0
-let g:hybrid_use_iTerm_colors = 1
-colorscheme hybrid 
 syntax enable
 
 set autoindent
@@ -39,12 +41,9 @@ set expandtab
 au BufNewFile,BufRead *.less set filetype=less
 
 "tab navigation
-nnoremap <C-S-Tab> :tabprevious<CR>
-nnoremap <C-Tab>   :tabnext<CR>
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-Tab> <Esc>:tabprevious<CR>i
-inoremap <C-Tab>   <Esc>:tabnext<CR>i
-inoremap <C-t>     <Esc>:tabnew<CR>
+nnoremap <S-t>  :tabnew<CR><CR>
+nnoremap <S-l>  gt
+nnoremap <S-h>  gT
 
 nmap ; :
 
@@ -79,3 +78,6 @@ if ! has('gui_running')
 		au InsertLeave * set timeoutlen=1000
 	augroup END
 endif
+
+"remove whitespace
+autocmd BufWritePre <buffer> :%s/\s\+$//e
