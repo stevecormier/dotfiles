@@ -82,3 +82,6 @@ endif
 
 "remove whitespace
 autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+"open quickfix window on grep
+autocmd QuickFixCmdPost *grep* cwindow
