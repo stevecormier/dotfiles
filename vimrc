@@ -24,6 +24,7 @@ set noshowmode
 set cursorline
 set nostartofline
 set nobackup
+set nowritebackup
 set noswapfile
 set hlsearch
 set ignorecase
@@ -71,12 +72,12 @@ endif
 
 "exit insert mode with 1 esc
 if ! has('gui_running')
-	set ttimeoutlen=10
-	augroup FastEscape
-		autocmd!
-		au InsertEnter * set timeoutlen=0
-		au InsertLeave * set timeoutlen=1000
-	augroup END
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
 endif
 
 "remove whitespace
