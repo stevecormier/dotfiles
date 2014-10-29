@@ -61,6 +61,16 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
+nmap <s-up> :split<cr>
+nmap <s-down> :split<cr><c-w><down>
+nmap <s-left> :vsplit<cr>
+nmap <s-right> :vsplit<cr><c-w><right>
+
+nmap <C-UP> <C-W><UP>:q<CR>
+nmap <C-DOWN> <C-W><DOWN>:q<CR>
+nmap <C-LEFT> <C-W><LEFT>:q<CR>
+nmap <C-RIGHT> <C-W><RIGHT>:q<CR>
+
 "search
 let g:ctrlp_use_caching = 1
 
