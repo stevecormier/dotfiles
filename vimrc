@@ -71,6 +71,11 @@ nmap <C-DOWN> <C-W><DOWN>:q<CR>
 nmap <C-LEFT> <C-W><LEFT>:q<CR>
 nmap <C-RIGHT> <C-W><RIGHT>:q<CR>
 
+nmap <C-k> <C-W><UP>
+nmap <C-j> <C-W><DOWN>
+nmap <C-h> <C-W><LEFT>
+nmap <C-l> <C-W><RIGHT>
+
 "search
 let g:ctrlp_use_caching = 1
 
