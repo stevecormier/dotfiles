@@ -43,8 +43,8 @@ au BufNewFile,BufRead *.less set filetype=less
 
 "tab navigation
 nnoremap <S-t>  :tabnew<CR><CR>
-nnoremap <S-l>  gt
-nnoremap <S-h>  gT
+nnoremap <C-l>  gt
+nnoremap <C-h>  gT
 
 nmap ; :
 
@@ -61,11 +61,19 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
+"create panes
 nmap <s-up> :split<cr>
 nmap <s-down> :split<cr><c-w><down>
 nmap <s-left> :vsplit<cr>
 nmap <s-right> :vsplit<cr><c-w><right>
 
+"move to panes
+nmap <S-k> <C-W><UP>
+nmap <S-j> <C-W><DOWN>
+nmap <S-h> <C-W><LEFT>
+nmap <S-l> <C-W><RIGHT>
+
+"close panes
 nmap <C-UP> <C-W><UP>:q<CR>
 nmap <C-DOWN> <C-W><DOWN>:q<CR>
 nmap <C-LEFT> <C-W><LEFT>:q<CR>
