@@ -38,6 +38,9 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+"NerdTree
+map <C-n> :NERDTreeToggle<CR>
+
 "syntax highlighting
 au BufNewFile,BufRead *.less set filetype=less
 
