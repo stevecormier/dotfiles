@@ -1,6 +1,6 @@
 set nocompatible
 filetype off
-filetype plugin indent on
+filetype plugin on
 execute pathogen#infect()
 
 set encoding=utf-8
@@ -38,16 +38,35 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+"SuperTab
+set omnifunc=syntaxcomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-p>"
+let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>"]
+set completeopt-=preview
+
+autocmd FileType *
+    \ if &omnifunc != '' |
+    \    call SuperTabChain(&omnifunc, '<c-p>') |
+    \    call SuperTabSetDefaultCompletionType('<c-x><c-u>') |
+    \ endif
+
 "NerdTree
-map <C-n> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
+
+"Tagbar
+nmap <C-c> :TagbarToggle<CR>
 
 "syntax highlighting
 au BufNewFile,BufRead *.less set filetype=less
 
-"tab navigation
+"buffer navigation
+nnoremap <C-l>  :bn<CR>
+nnoremap <C-h>  :bp<CR>
+nnoremap <C-z>  :bd<CR>
+
 nnoremap <S-t>  :tabnew<CR><CR>
-nnoremap <C-l>  gt
-nnoremap <C-h>  gT
 
 nmap ; :
 
@@ -65,10 +84,10 @@ map <left> <nop>
 map <right> <nop>
 
 "create panes
-nmap <s-up> :split<cr>
-nmap <s-down> :split<cr><c-w><down>
-nmap <s-left> :vsplit<cr>
-nmap <s-right> :vsplit<cr><c-w><right>
+nmap <S-up> :split<cr>
+nmap <S-down> :split<cr><c-w><down>
+nmap <S-left> :vsplit<cr>
+nmap <S-right> :vsplit<cr><c-w><right>
 
 "move to panes
 nmap <S-k> <C-W><UP>
@@ -76,19 +95,15 @@ nmap <S-j> <C-W><DOWN>
 nmap <S-h> <C-W><LEFT>
 nmap <S-l> <C-W><RIGHT>
 
-"close panes
-nmap <C-UP> <C-W><UP>:q<CR>
-nmap <C-DOWN> <C-W><DOWN>:q<CR>
-nmap <C-LEFT> <C-W><LEFT>:q<CR>
-nmap <C-RIGHT> <C-W><RIGHT>:q<CR>
-
 "search
 let g:ctrlp_use_caching = 1
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_working_path_mode = 'r'
 
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    let g:ctrlp_use_caching = 0
+    lef g:ctrlp_use_caching = 0
 endif
 
 "exit insert mode with 1 esc
@@ -106,3 +121,4 @@ autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "open quickfix window on grep
 autocmd QuickFixCmdPost *grep* cwindow
+
