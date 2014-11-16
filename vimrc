@@ -64,11 +64,11 @@ au BufNewFile,BufRead *.less set filetype=less
 "buffer navigation
 nnoremap <C-l>  :bn<CR>
 nnoremap <C-h>  :bp<CR>
-nnoremap <C-z>  :bd<CR>
 
 nnoremap <S-t>  :tabnew<CR><CR>
 
 nmap ; :
+imap ii <ESC>
 
 "press enter to clear seach highlights
 nnoremap <CR> :noh<CR>
@@ -101,19 +101,9 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'r'
 
 if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
+    set grepprg=ag\ --nogroup\ --context
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
     lef g:ctrlp_use_caching = 0
-endif
-
-"exit insert mode with 1 esc
-if ! has('gui_running')
-    set ttimeoutlen=10
-    augroup FastEscape
-        autocmd!
-        au InsertEnter * set timeoutlen=0
-        au InsertLeave * set timeoutlen=1000
-    augroup END
 endif
 
 "remove whitespace
