@@ -18,5 +18,5 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 
 # Source external files.
 [[ -f ~/.aliases ]] && source ~/.aliases
-[[ -f ~/.private ]] && source ~/.private
+[[ -f ~/.localrc ]] && source ~/.localrc
 
