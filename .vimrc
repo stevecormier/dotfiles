@@ -1,44 +1,90 @@
-set nocompatible
-filetype off
-filetype plugin on
-execute pathogen#infect()
+" ~/.vimrc
 
+" General {{{
+
+set nocompatible
 set encoding=utf-8
-set t_Co=256
-set laststatus=2
+execute pathogen#infect()
 set mouse=a
-set ve=all
-let g:hybrid_use_iTerm_colors = 1
+set virtualedit=all
+set modelines=1
+"remove whitespace
+autocmd BufWritePre <buffer> :%s/\s\+$//e
+nmap ; :
+imap ii <ESC>
+let mapleader=","
+
+" }}}
+
+" UI {{{
+
+set number
+set cursorline
+set noshowmode
+set nowrap
+set ttyfast
+set lazyredraw
+set laststatus=2
+set wildmenu
+
+" }}}
+
+" Colors {{{
+
+set t_Co=256
 colorscheme hybrid
+let g:hybrid_use_iTerm_colors = 1
+syntax enable
+au BufNewFile,BufRead *.less set filetype=less
+
+" }}}
+
+" Spaces & Tabs {{{
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent
+set backspace=indent,eol,start
+filetype plugin on
+filetype indent on
+"stay in visual mode when indenting
+vnoremap < <gv
+vnoremap > >gv
+
+" }}}
+
+" Airline {{{
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'serene'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_detect_whitespace = 0
-syntax enable
 
-set autoindent
-set number
-set nowrap
-set noshowmode
-set cursorline
-set nostartofline
+" }}}
+
+" Backup {{{
+
 set nobackup
 set nowritebackup
 set noswapfile
-set hlsearch
-set ignorecase
-set smartcase
-set incsearch
-set showmatch
 
-"tab setup
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
+" }}}
 
-"SuperTab
+" Folding {{{
+
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=marker
+set foldmarker={,}
+nnoremap <space> za
+
+" }}}
+
+" SuperTab {{{
+
 set omnifunc=syntaxcomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-p>"
@@ -52,37 +98,35 @@ autocmd FileType *
     \    call SuperTabSetDefaultCompletionType('<c-x><c-u>') |
     \ endif
 
-"NerdTree
-nmap <C-n> :NERDTreeToggle<CR>
+" }}}
 
-"Tagbar
+" NerdTree {{{
+
+map <C-n> :NERDTreeToggle<CR>
+
+" }}}
+
+" Tagbar {{{
+
 nmap <C-c> :TagbarToggle<CR>
 
-"syntax highlighting
-au BufNewFile,BufRead *.less set filetype=less
+" }}}
+
+" Buffers {{{
 
 "buffer navigation
 nnoremap <C-l>  :bn<CR>
 nnoremap <C-h>  :bp<CR>
 
+" }}}
+
+" Tabs {{{
+
 nnoremap <S-t>  :tabnew<CR><CR>
 
-nmap ; :
-imap ii <ESC>
+" }}}
 
-"press enter to clear seach highlights
-nnoremap <CR> :noh<CR>
-
-"stay in visual mode when indenting
-vnoremap < <gv
-vnoremap > >gv
-
-"no arrow keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-
+" Panes {{{
 "create panes
 nmap <S-up> :split<cr>
 nmap <S-down> :split<cr><c-w><down>
@@ -94,21 +138,30 @@ nmap <S-k> <C-W><UP>
 nmap <S-j> <C-W><DOWN>
 nmap <S-h> <C-W><LEFT>
 nmap <S-l> <C-W><RIGHT>
+" }}}
 
-"search
+" Search {{{
+
+set showmatch
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+"press enter to clear seach highlights
+nnoremap <CR> :noh<CR>
+
 let g:ctrlp_use_caching = 1
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'r'
 
 if executable('ag')
-    set grepprg=ag\ --nogroup\ --context
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    nnoremap <leader>a :Ag
+    let g:agprg="ag -C -S"
+    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
     lef g:ctrlp_use_caching = 0
 endif
 
-"remove whitespace
-autocmd BufWritePre <buffer> :%s/\s\+$//e
+" }}}
 
-"open quickfix window on grep
-autocmd QuickFixCmdPost *grep* cwindow
-
+" vim:foldmethod=marker:foldlevel=0:foldmarker={{{,}}}
