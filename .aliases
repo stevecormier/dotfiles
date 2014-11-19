@@ -1,5 +1,6 @@
 # ~/.aliases
 
 alias c='clear'
+alias psg='ps aux | grep'
 alias todo='vim ~/Dropbox/todo.txt'
 alias notes='vim ~/Dropbox/notes.txt'
