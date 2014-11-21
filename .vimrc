@@ -8,6 +8,7 @@ execute pathogen#infect()
 set mouse=a
 set virtualedit=all
 set modelines=1
+set clipboard=unnamed
 "remove whitespace
 autocmd BufWritePre <buffer> :%s/\s\+$//e
 nmap ; :
@@ -23,7 +24,6 @@ set cursorline
 set noshowmode
 set nowrap
 set ttyfast
-set lazyredraw
 set laststatus=2
 set wildmenu
 
@@ -83,23 +83,6 @@ nnoremap <space> za
 
 " }}}
 
-" SuperTab {{{
-
-set omnifunc=syntaxcomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-p>"
-let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>"]
-set completeopt-=preview
-
-autocmd FileType *
-    \ if &omnifunc != '' |
-    \    call SuperTabChain(&omnifunc, '<c-p>') |
-    \    call SuperTabSetDefaultCompletionType('<c-x><c-u>') |
-    \ endif
-
-" }}}
-
 " NerdTree {{{
 
 map <C-n> :NERDTreeToggle<CR>
@@ -112,6 +95,11 @@ nmap <C-c> :TagbarToggle<CR>
 
 " }}}
 
+" YouCompleteMe {{{
+ set completeopt-=preview
+ let g:ycm_add_preview_to_completeopt=0
+" }}}
+"
 " Buffers {{{
 
 "buffer navigation

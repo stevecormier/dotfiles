@@ -12,7 +12,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/games/bin:/usr/local/git/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/games/bin:/usr/local/git/bin"
 export EDITOR='vim'
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 
