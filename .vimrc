@@ -96,10 +96,28 @@ nmap <C-c> :TagbarToggle<CR>
 " }}}
 
 " YouCompleteMe {{{
- set completeopt-=preview
- let g:ycm_add_preview_to_completeopt=0
+
+set completeopt-=preview
+let g:ycm_add_preview_to_completeopt=0
+
 " }}}
-"
+
+" UltiSnips {{{
+
+let g:UltiSnipsExpandTrigger = "<nop>"
+let g:ulti_expand_or_jump_res = 0
+function ExpandSnippetOrCarriageReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+        return snippet
+    else
+        return "\<CR>"
+    endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+
+" }}}
+
 " Buffers {{{
 
 "buffer navigation
@@ -115,6 +133,7 @@ nnoremap <S-t>  :tabnew<CR><CR>
 " }}}
 
 " Panes {{{
+
 "create panes
 nmap <S-up> :split<cr>
 nmap <S-down> :split<cr><c-w><down>
@@ -126,6 +145,7 @@ nmap <S-k> <C-W><UP>
 nmap <S-j> <C-W><DOWN>
 nmap <S-h> <C-W><LEFT>
 nmap <S-l> <C-W><RIGHT>
+
 " }}}
 
 " Search {{{
