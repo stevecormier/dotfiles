@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dir=~/dotfiles
-files="vimrc vim zshrc"
+files="vimrc vim zshrc aliases"
 
 for file in $files; do
 	echo "Creating symlink to .$file in home directory."
