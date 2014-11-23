@@ -1,12 +1,12 @@
 #!/bin/bash
 
 dir=~/dotfiles
-files="vimrc vim zshrc aliases"
 
-for file in $files; do
-	echo "Creating symlink to .$file in home directory."
-	ln -s $dir/$file ~/.$file
-done
+echo "Creating symlinks"
+ln -s $dir/vim ~/.vim
+ln -s $dir/vimrc ~/.vimrc
+ln -s $dir/zshrc ~/.zshrc
+ln -s $dir/aliases ~/.aliases
 
 git submodule init
 git submodule update
