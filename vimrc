@@ -155,9 +155,11 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+nnoremap n nzz
+nnoremap N Nzz
 
 "press enter to clear seach highlights
-nnoremap <CR> :noh<CR>
+nnoremap <CR> :noh<CR><CR>
 
 let g:ctrlp_use_caching = 1
 let g:ctrlp_cmd = 'CtrlPMixed'

@@ -7,7 +7,7 @@ ZSH_THEME="steve"
 CASE_SENSITIVE="true"
 ENABLE_CORRECTION="true"
 
-plugins=(git)
+plugins=(gitfast)
 
 source $ZSH/oh-my-zsh.sh
 
