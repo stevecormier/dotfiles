@@ -155,8 +155,12 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+
+" center search term
 nnoremap n nzz
 nnoremap N Nzz
+nnoremap * *zz
+nnoremap # hzz
 
 "press enter to clear seach highlights
 nnoremap <CR> :noh<CR><CR>
