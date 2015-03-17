@@ -14,6 +14,7 @@ autocmd BufWritePre <buffer> :%s/\s\+$//e
 nmap ; :
 imap ii <ESC>
 let mapleader=","
+runtime macros/matchit.vim
 
 " }}}
 
