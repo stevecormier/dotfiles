@@ -1,3 +1,3 @@
 dotfiles
 ========
-work in progress
+Some conifg junk, mostly for vim
