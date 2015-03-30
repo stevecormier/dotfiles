@@ -32,6 +32,7 @@ set wildmenu
 
 " Colors {{{
 
+set background=dark
 set t_Co=256
 colorscheme hybrid
 let g:hybrid_use_iTerm_colors = 1
@@ -61,8 +62,7 @@ vnoremap > >gv
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'serene'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_detect_whitespace = 0
-
+let g:airline#extensions#whitespace#enabled = 0
 " }}}
 
 " Backup {{{
@@ -96,29 +96,6 @@ nmap <C-c> :TagbarToggle<CR>
 
 " }}}
 
-" YouCompleteMe {{{
-
-set completeopt-=preview
-let g:ycm_add_preview_to_completeopt=0
-
-" }}}
-
-" UltiSnips {{{
-
-let g:UltiSnipsExpandTrigger = "<nop>"
-let g:ulti_expand_or_jump_res = 0
-function ExpandSnippetOrCarriageReturn()
-    let snippet = UltiSnips#ExpandSnippetOrJump()
-    if g:ulti_expand_or_jump_res > 0
-        return snippet
-    else
-        return "\<CR>"
-    endif
-endfunction
-inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
-
-" }}}
-
 " Buffers {{{
 
 "buffer navigation
@@ -134,6 +111,9 @@ nnoremap <S-t>  :tabnew<CR><CR>
 " }}}
 
 " Panes {{{
+
+set splitbelow
+set splitright
 
 "create panes
 nmap <S-up> :split<cr>
@@ -174,4 +154,4 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-stand
 
 " }}}
 
-" vim:foldmethod=marker:foldlevel=0:foldmarker={{{,}}}
+" vim:foldmethod=marker:foldmarker={{{,}}}
