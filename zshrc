@@ -20,3 +20,5 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f ~/.localrc ]] && source ~/.localrc
 
+
+source /Users/stephen.cormier/.iterm2_shell_integration.zsh
