@@ -84,6 +84,12 @@ nnoremap <space> za
 
 " }}}
 
+" Terminal {{{
+
+ :tnoremap <Esc> <C-\><C-n>
+
+" }}}
+
 " NerdTree {{{
 
 map <C-n> :NERDTreeToggle<CR>
@@ -104,28 +110,10 @@ nnoremap <C-h>  :bp<CR>
 
 " }}}
 
-" Tabs {{{
-
-nnoremap <S-t>  :tabnew<CR><CR>
-
-" }}}
-
 " Panes {{{
 
 set splitbelow
 set splitright
-
-"create panes
-nmap <S-up> :split<cr>
-nmap <S-down> :split<cr><c-w><down>
-nmap <S-left> :vsplit<cr>
-nmap <S-right> :vsplit<cr><c-w><right>
-
-"move to panes
-nmap <S-k> <C-W><UP>
-nmap <S-j> <C-W><DOWN>
-nmap <S-h> <C-W><LEFT>
-nmap <S-l> <C-W><RIGHT>
 
 " }}}
 
