@@ -85,8 +85,9 @@ nnoremap <space> za
 " }}}
 
 " Terminal {{{
-
- :tnoremap <Esc> <C-\><C-n>
+if exists(':tnoremap')
+    :tnoremap <Esc> <C-\><C-n>
+endif
 
 " }}}
 
