@@ -5,10 +5,10 @@
 	helper = osxkeychain
 [alias]
 	g = grep --break --heading --line-number
-    last = log -1 --stat
-    unstage = reset HEAD --
-    graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"
-    stat = status -sb
+	last = log -1 --stat
+	unstage = reset HEAD --
+	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"
+	stat = status -sb
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
