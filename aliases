@@ -3,6 +3,7 @@
 alias c='clear'
 alias v='nvim'
 alias psg='ps aux | grep'
+alias htop='sudo htop'
 alias todo='vim ~/Dropbox/todo.txt'
 alias notes='vim ~/Dropbox/notes.txt'
 

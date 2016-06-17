@@ -22,3 +22,8 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 
 
 source /Users/stephen.cormier/.iterm2_shell_integration.zsh
+
+export NVM_DIR="/Users/stephen.cormier/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
