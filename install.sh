@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir=~/dotfiles
+dir=~/dev/dotfiles
 
 echo "Creating symlinks"
 ln -s $dir/vim ~/.vim
