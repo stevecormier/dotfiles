@@ -1,9 +1,15 @@
 # ~/.aliases
 
 alias c='clear'
-alias v='nvim'
-alias psg='ps aux | grep'
+alias cp='cp -iv'
+alias headers='curl -I'
 alias htop='sudo htop'
-alias todo='vim ~/Dropbox/todo.txt'
+alias ln='ln -iv'
+alias mkdir='mkdir -pv'
+alias mv='mv -iv'
 alias notes='vim ~/Dropbox/notes.txt'
+alias psg='ps aux | grep'
+alias todo='vim ~/Dropbox/todo.txt'
+alias v='nvim'
+alias wttr='curl -s wttr.in | head -7;echo'
 
